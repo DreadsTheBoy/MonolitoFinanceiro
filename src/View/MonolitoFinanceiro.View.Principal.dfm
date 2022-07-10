@@ -1,7 +1,7 @@
-object Form1: TForm1
+object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
-  Caption = 'Form1'
+  Caption = 'Monolito Financeiro'
   ClientHeight = 611
   ClientWidth = 1110
   Color = clBtnFace
@@ -10,7 +10,23 @@ object Form1: TForm1
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
+  Menu = MainMenu1
   OldCreateOrder = False
+  Position = poScreenCenter
+  WindowState = wsMaximized
   PixelsPerInch = 96
   TextHeight = 13
+  object MainMenu1: TMainMenu
+    Left = 16
+    Top = 16
+    object mnuCadastro: TMenuItem
+      Caption = 'Cadastros'
+    end
+    object mnuRelatorios: TMenuItem
+      Caption = 'Relat'#243'rios'
+    end
+    object mnuAjuda: TMenuItem
+      Caption = 'Ajuda'
+    end
+  end
 end
