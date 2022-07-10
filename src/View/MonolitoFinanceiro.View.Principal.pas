@@ -3,8 +3,17 @@ unit MonolitoFinanceiro.View.Principal;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.Menus,
+  MonolitoFinanceiro.View.TemplateCadastro;
 
 type
   TfrmPrincipal = class(TForm)
@@ -12,6 +21,8 @@ type
     mnuCadastro: TMenuItem;
     mnuRelatorios: TMenuItem;
     mnuAjuda: TMenuItem;
+    mnuCadastroPadrao: TMenuItem;
+    procedure mnuCadastroPadraoClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,5 +35,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmPrincipal.mnuCadastroPadraoClick(Sender: TObject);
+begin
+  frmCadastroPadrao.show;
+end;
 
 end.
