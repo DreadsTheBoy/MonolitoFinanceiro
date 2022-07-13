@@ -13,7 +13,8 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   Vcl.Menus,
-  MonolitoFinanceiro.View.TemplateCadastro;
+  MonolitoFinanceiro.View.TemplateCadastro,
+  MonolitoFinanceiro.View.Splash;
 
 type
   TfrmPrincipal = class(TForm)
@@ -23,6 +24,7 @@ type
     mnuAjuda: TMenuItem;
     mnuCadastroPadrao: TMenuItem;
     procedure mnuCadastroPadraoClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -35,6 +37,11 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+  frmSplash.create;
+end;
 
 procedure TfrmPrincipal.mnuCadastroPadraoClick(Sender: TObject);
 begin
