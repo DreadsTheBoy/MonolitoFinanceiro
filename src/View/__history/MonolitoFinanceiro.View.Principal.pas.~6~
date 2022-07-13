@@ -40,12 +40,7 @@ implementation
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
-  frmSplash := TFrmSplash.Create(nil);
-  try
-    frmSplash.ShowModal;
-  finally
-    freeAndNil(frmSplash);
-  end;
+  frmSplash.create;
 end;
 
 procedure TfrmPrincipal.mnuCadastroPadraoClick(Sender: TObject);
