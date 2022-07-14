@@ -26,10 +26,6 @@ object frmSplash: TfrmSplash
     Padding.Top = 10
     ParentBackground = False
     TabOrder = 0
-    ExplicitLeft = 352
-    ExplicitTop = 208
-    ExplicitWidth = 185
-    ExplicitHeight = 41
     object imgLogo: TImage
       Left = 0
       Top = 10
@@ -923,9 +919,7 @@ object frmSplash: TfrmSplash
       Font.Name = 'Segoe UI'
       Font.Style = []
       ParentFont = False
-      ExplicitLeft = 160
-      ExplicitTop = 219
-      ExplicitWidth = 753
+      ExplicitWidth = 306
     end
     object imglDll: TImage
       Left = 288
@@ -1137,9 +1131,6 @@ object frmSplash: TfrmSplash
       Align = alBottom
       Step = 1
       TabOrder = 0
-      ExplicitLeft = 312
-      ExplicitTop = 280
-      ExplicitWidth = 150
     end
     object Panel1: TPanel
       Left = 0
@@ -1150,9 +1141,6 @@ object frmSplash: TfrmSplash
       BevelOuter = bvNone
       Padding.Bottom = 5
       TabOrder = 1
-      ExplicitLeft = 56
-      ExplicitTop = 240
-      ExplicitWidth = 185
       object lblStatus: TLabel
         Left = 0
         Top = 15
@@ -1166,7 +1154,6 @@ object frmSplash: TfrmSplash
         Font.Name = 'Segoe UI'
         Font.Style = []
         ParentFont = False
-        ExplicitTop = 353
         ExplicitWidth = 4
       end
     end

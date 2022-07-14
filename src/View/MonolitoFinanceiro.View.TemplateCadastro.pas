@@ -3,8 +3,23 @@ unit MonolitoFinanceiro.View.TemplateCadastro;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls, Vcl.WinXPanels, System.ImageList, Vcl.ImgList;
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Data.DB,
+  Vcl.StdCtrls,
+  Vcl.Grids,
+  Vcl.DBGrids,
+  Vcl.ExtCtrls,
+  Vcl.WinXPanels,
+  System.ImageList,
+  Vcl.ImgList;
 
 type
   TfrmCadastroPadrao = class(TForm)
@@ -31,6 +46,7 @@ type
     procedure btnAlterarClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure btnPesquisarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -57,6 +73,11 @@ end;
 procedure TfrmCadastroPadrao.btnIncluirClick(Sender: TObject);
 begin
   cpnlPrincipal.ActiveCard := cardCadastro;
+end;
+
+procedure TfrmCadastroPadrao.btnPesquisarClick(Sender: TObject);
+begin
+  //
 end;
 
 procedure TfrmCadastroPadrao.Button1Click(Sender: TObject);

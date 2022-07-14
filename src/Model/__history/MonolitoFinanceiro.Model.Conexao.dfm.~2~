@@ -1,0 +1,20 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 502
+  Width = 686
+  object SQLConexao: TFDConnection
+    Params.Strings = (
+      
+        'Database=D:\Dev\Project Delphi\MonolitoFinanceiro\db\SistemaFina' +
+        'nceiro.db'
+      'DriverID=SQLite')
+    LoginPrompt = False
+    Left = 32
+    Top = 24
+  end
+  object FDQuery1: TFDQuery
+    Connection = SQLConexao
+    Left = 32
+    Top = 96
+  end
+end

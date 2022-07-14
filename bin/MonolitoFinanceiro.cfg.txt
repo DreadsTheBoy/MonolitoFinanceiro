@@ -1,0 +1,4 @@
+[Banco de Dados]
+DriverID = SQLite
+Database = D:\Dev\Project Delphi\MonolitoFinanceiro\db\SistemaFinanceiro.db
+LockingMode = Normal

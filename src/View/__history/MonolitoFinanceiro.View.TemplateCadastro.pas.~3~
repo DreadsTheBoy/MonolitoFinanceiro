@@ -1,0 +1,67 @@
+unit MonolitoFinanceiro.View.TemplateCadastro;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids, Vcl.DBGrids, Vcl.ExtCtrls, Vcl.WinXPanels, System.ImageList, Vcl.ImgList;
+
+type
+  TfrmCadastroPadrao = class(TForm)
+    cpnlPrincipal: TCardPanel;
+    CardCadastro: TCard;
+    CardPesquisa: TCard;
+    pnlPesquisa: TPanel;
+    PnlPesquisaBotoes: TPanel;
+    pnlPesquisaGrid: TPanel;
+    DBGrid1: TDBGrid;
+    edtPesquisa: TEdit;
+    Label1: TLabel;
+    btnPesquisar: TButton;
+    ImageList1: TImageList;
+    btnFechar: TButton;
+    btnImprimir: TButton;
+    btnIncluir: TButton;
+    btnAlterar: TButton;
+    btnExcluir: TButton;
+    Panel1: TPanel;
+    Button1: TButton;
+    Button2: TButton;
+    procedure btnIncluirClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure btnFecharClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCadastroPadrao: TfrmCadastroPadrao;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmCadastroPadrao.btnAlterarClick(Sender: TObject);
+begin
+  cpnlPrincipal.ActiveCard := cardCadastro;
+end;
+
+procedure TfrmCadastroPadrao.btnFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmCadastroPadrao.btnIncluirClick(Sender: TObject);
+begin
+  cpnlPrincipal.ActiveCard := cardCadastro;
+end;
+
+procedure TfrmCadastroPadrao.Button1Click(Sender: TObject);
+begin
+  cpnlPrincipal.ActiveCard := CardPesquisa;
+end;
+
+end.

@@ -14,7 +14,8 @@ uses
   Vcl.Dialogs,
   Vcl.Menus,
   MonolitoFinanceiro.View.TemplateCadastro,
-  MonolitoFinanceiro.View.Splash;
+  MonolitoFinanceiro.View.Splash,
+  MonolitoFinanceiro.View.Usuarios;
 
 type
   TfrmPrincipal = class(TForm)
@@ -22,8 +23,8 @@ type
     mnuCadastro: TMenuItem;
     mnuRelatorios: TMenuItem;
     mnuAjuda: TMenuItem;
-    mnuCadastroPadrao: TMenuItem;
-    procedure mnuCadastroPadraoClick(Sender: TObject);
+    mnuUsuarios: TMenuItem;
+    procedure mnuUsuariosClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
@@ -48,9 +49,9 @@ begin
   end;
 end;
 
-procedure TfrmPrincipal.mnuCadastroPadraoClick(Sender: TObject);
+procedure TfrmPrincipal.mnuUsuariosClick(Sender: TObject);
 begin
-  frmCadastroPadrao.show;
+  frmUsuarios.show;
 end;
 
 end.
