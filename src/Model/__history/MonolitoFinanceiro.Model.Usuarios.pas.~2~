@@ -1,0 +1,25 @@
+unit MonolitoFinanceiro.Model.Usuarios;
+
+interface
+
+uses
+  System.SysUtils, System.Classes;
+
+type
+  TdmUsuarios = class(TDataModule)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmUsuarios: TdmUsuarios;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+end.

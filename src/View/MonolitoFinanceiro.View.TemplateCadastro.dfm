@@ -14,6 +14,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
   Font.Style = []
   OldCreateOrder = False
   Position = poScreenCenter
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object cpnlPrincipal: TCardPanel
@@ -22,7 +23,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
     Width = 1076
     Height = 637
     Align = alClient
-    ActiveCard = CardPesquisa
+    ActiveCard = CardCadastro
     Caption = 'cpnlPrincipal'
     TabOrder = 0
     object CardCadastro: TCard
@@ -33,7 +34,6 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       Caption = 'CardCadastro'
       CardIndex = 0
       TabOrder = 0
-      ExplicitLeft = 2
       object Panel1: TPanel
         Left = 0
         Top = 570
@@ -42,7 +42,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 0
-        object Button1: TButton
+        object btnCancelar: TButton
           Left = 999
           Top = 0
           Width = 75
@@ -54,9 +54,9 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           ImageMargins.Top = 10
           Images = ImageList1
           TabOrder = 0
-          OnClick = Button1Click
+          OnClick = btnCancelarClick
         end
-        object Button2: TButton
+        object btnSalvar: TButton
           Left = 924
           Top = 0
           Width = 75
@@ -68,6 +68,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           ImageMargins.Top = 10
           Images = ImageList1
           TabOrder = 1
+          OnClick = btnSalvarClick
         end
       end
     end

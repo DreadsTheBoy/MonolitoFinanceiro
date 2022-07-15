@@ -1,0 +1,77 @@
+unit MonolitoFinanceiro.View.Usuarios;
+
+interface
+
+uses
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  MonolitoFinanceiro.View.TemplateCadastro,
+  MonolitoFinanceiro.Model.Usuarios,
+  Data.DB,
+  System.ImageList,
+  Vcl.ImgList,
+  Vcl.Grids,
+  Vcl.DBGrids,
+  Vcl.StdCtrls,
+  Vcl.ExtCtrls,
+  Vcl.WinXPanels,
+  Vcl.WinXCtrls;
+type
+  TfrmUsuarios = class(TfrmCadastroPadrao)
+    DataSource1: TDataSource;
+    edtNome: TEdit;
+    edtLogin: TEdit;
+    edtSenha: TEdit;
+    ToggleStatus: TToggleSwitch;
+    Label2: TLabel;
+    Label3: TLabel;
+    Label4: TLabel;
+    Label5: TLabel;
+    procedure btnPesquisarClick(Sender: TObject);
+    procedure btnAlterarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmUsuarios: TfrmUsuarios;
+
+implementation
+
+{$R *.dfm}
+
+uses MonolitoFinanceiro.Model.Conexao;
+
+procedure TfrmUsuarios.btnAlterarClick(Sender: TObject);
+begin
+  inherited;
+  edtNome.Text  := dmUsuarios.cdsUsuariosNOME.AsString;
+  edtLogin.Text := dmUsuarios.cdsUsuariosLOGIN.AsString;
+  edtSenha.Text := dmUsuarios.cdsUsuariosSenha.AsString;
+
+  ToggleStatus.State := tssOn;
+  if dmUsuarios.cdsUsuariosSTATUS.AsString = 'B' then
+    ToggleStatus.State := TssOff;
+end;
+
+procedure TfrmUsuarios.btnPesquisarClick(Sender: TObject);
+begin
+  inherited;
+  dmUsuarios.cdsUsuarios.close;
+  dmUsuarios.cdsUsuarios.CommandText := 'SELECT * FROM USUARIOS';
+  dmUsuarios.cdsUsuarios.open;
+  //dmUsuarios.FDQuery1.SQL.Clear;
+  //dmUsuarios.FDQuery1.SQL.Add('SELECT * FROM USUARIOS');
+  //dmUsuarios.FDQuery1.Open;
+end;
+
+end.

@@ -40,13 +40,15 @@ type
     btnAlterar: TButton;
     btnExcluir: TButton;
     Panel1: TPanel;
-    Button1: TButton;
-    Button2: TButton;
+    btnCancelar: TButton;
+    btnSalvar: TButton;
     procedure btnIncluirClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
-    procedure Button1Click(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
     procedure btnPesquisarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -80,7 +82,17 @@ begin
   //
 end;
 
-procedure TfrmCadastroPadrao.Button1Click(Sender: TObject);
+procedure TfrmCadastroPadrao.btnSalvarClick(Sender: TObject);
+begin
+  //
+end;
+
+procedure TfrmCadastroPadrao.btnCancelarClick(Sender: TObject);
+begin
+  cpnlPrincipal.ActiveCard := CardPesquisa;
+end;
+
+procedure TfrmCadastroPadrao.FormShow(Sender: TObject);
 begin
   cpnlPrincipal.ActiveCard := CardPesquisa;
 end;
