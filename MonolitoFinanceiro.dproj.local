@@ -6,8 +6,8 @@
     <Transaction>2022/07/10 11:36:35.000.459,D:\Dev\Project Delphi\Unit1.pas=D:\Dev\Project Delphi\MonolitoFinanceiro\src\View\MonolitoFinanceiro.View.Principal.pas</Transaction>
     <Transaction>2022/07/10 11:36:59.000.643,D:\Dev\Project Delphi\Project1.dproj=D:\Dev\Project Delphi\MonolitoFinanceiro\MonolitoFinanceiro.dproj</Transaction>
     <Transaction>2022/07/10 16:24:26.000.762,=D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.pas</Transaction>
-    <Transaction>2022/07/10 16:25:23.000.656,D:\Dev\Project Delphi\MonolitoFinanceiro\src\View\MonolitoFinanceiro.View.TemplateCadastro.dfm=D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.dfm</Transaction>
     <Transaction>2022/07/10 16:25:23.000.656,D:\Dev\Project Delphi\MonolitoFinanceiro\src\View\MonolitoFinanceiro.View.TemplateCadastro.pas=D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.pas</Transaction>
+    <Transaction>2022/07/10 16:25:23.000.656,D:\Dev\Project Delphi\MonolitoFinanceiro\src\View\MonolitoFinanceiro.View.TemplateCadastro.dfm=D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.dfm</Transaction>
     <Transaction>2022/07/12 20:56:11.000.035,=D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.pas</Transaction>
     <Transaction>2022/07/12 20:56:32.000.038,D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.pas=D:\Dev\Project Delphi\MonolitoFinanceiro\src\View\MonolitoFinanceiro.View.Splash.pas</Transaction>
     <Transaction>2022/07/12 20:56:32.000.038,D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.dfm=D:\Dev\Project Delphi\MonolitoFinanceiro\src\View\MonolitoFinanceiro.View.Splash.dfm</Transaction>
@@ -21,5 +21,7 @@
     <Transaction>2022/07/14 21:30:52.000.022,=D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.pas</Transaction>
     <Transaction>2022/07/14 21:31:37.000.776,D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.pas=D:\Dev\Project Delphi\MonolitoFinanceiro\src\Model\MonolitoFinanceiro.Model.Usuarios.pas</Transaction>
     <Transaction>2022/07/14 21:31:37.000.776,D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.dfm=D:\Dev\Project Delphi\MonolitoFinanceiro\src\Model\MonolitoFinanceiro.Model.Usuarios.dfm</Transaction>
+    <Transaction>2022/07/16 22:20:13.000.876,=D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.pas</Transaction>
+    <Transaction>2022/07/16 22:21:14.000.406,D:\Dev\Project Delphi\MonolitoFinanceiro\Unit1.pas=D:\Dev\Project Delphi\MonolitoFinanceiro\src\Util\MonolitoFinanceiro.Utilitarios.pas</Transaction>
   </Transactions>
 </BorlandProject>

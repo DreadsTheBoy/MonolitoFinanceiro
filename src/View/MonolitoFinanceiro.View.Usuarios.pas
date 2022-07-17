@@ -22,7 +22,9 @@ uses
   Vcl.StdCtrls,
   Vcl.ExtCtrls,
   Vcl.WinXPanels,
-  Vcl.WinXCtrls;
+  Vcl.WinXCtrls,
+  MonolitoFinanceiro.Model.Conexao,
+  MonolitoFinanceiro.Utilitarios;
 
 type
   TfrmUsuarios = class(TfrmCadastroPadrao)
@@ -41,6 +43,7 @@ type
     procedure btnSalvarClick(Sender: TObject);
     procedure btnIncluirClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -58,7 +61,6 @@ implementation
 
 {$R *.dfm}
 
-uses MonolitoFinanceiro.Model.Conexao;
 
 procedure TfrmUsuarios.btnAlterarClick(Sender: TObject);
 begin
@@ -79,6 +81,22 @@ procedure TfrmUsuarios.btnCancelarClick(Sender: TObject);
 begin
   inherited;
   dmUsuarios.cdsUsuarios.Cancel;
+
+end;
+
+procedure TfrmUsuarios.btnExcluirClick(Sender: TObject);
+begin
+  inherited;
+  if Application.MessageBox('Deseja realmente excluir o registro????', 'Pergunta', MB_YESNO + MB_ICONQUESTION) <> mrYes then
+  exit;
+  try
+    dmUsuarios.cdsUsuarios.Delete;
+    dmUsuarios.cdsUsuarios.ApplyUpdates(0);
+    Application.MessageBox('Registro Excluido com Sucesso!!!', 'Aviso',MB_OK + MB_ICONINFORMATION);
+  except on E : Exception do
+    Application.MessageBox(PWideChar(E.Message),'Erro ao Excluir o Registro',MB_OK + MB_ICONERROR);
+  end;
+
 end;
 
 procedure TfrmUsuarios.btnIncluirClick(Sender: TObject);
@@ -101,7 +119,8 @@ end;
 
 procedure TfrmUsuarios.btnSalvarClick(Sender: TObject);
 var
-  LStatus : String;
+  LStatus  : String;
+  Mensagem : String;
 begin
   if Trim(edtNome.Text) = '' then
   begin
@@ -124,10 +143,26 @@ begin
     abort;
   end;
 
+  if dmUsuarios.TemLoginCadastrado(Trim(edtLogin.Text), dmUsuarios.cdsUsuarios.FieldByName('ID').AsString) then
+  begin
+    edtLogin.SetFocus;
+    Application.MessageBox(PWideChar(Format('O Login %s ja se encontra cadastrado.', [edtLogin.Text])),'Atenção',MB_OK + MB_ICONWARNING);
+    abort;
+  end;
+
   LStatus := 'A';
 
   if ToggleStatus.State = tssOff then
     LStatus := 'B';
+
+  Mensagem := 'Registro Alterado com Sucesso!';
+
+  if dmUsuarios.cdsUsuarios.State in [dsInsert] then
+  begin
+    dmUsuarios.cdsUsuariosID.AsString := TUtilitarios.GetID;
+    dmUsuarios.cdsUsuariosDATA_CADASTRO.AsDateTime := Now;
+    Mensagem := 'Registro Incluido com Sucesso!';
+  end;
 
   dmUsuarios.cdsUsuariosNOME.AsString   := Trim(edtNome.Text);
   dmUsuarios.cdsUsuariosLOGIN.AsString  := Trim(edtLogin.Text);
@@ -136,7 +171,7 @@ begin
 
   dmUsuarios.cdsUsuarios.Post;
   dmUsuarios.cdsUsuarios.ApplyUpdates(0);
-  Application.MessageBox('O Registro Foi Alterado com Sucesso','Aviso',MB_OK + MB_ICONINFORMATION);
+  Application.MessageBox(PWideChar(Mensagem), 'Aviso',MB_OK + MB_ICONINFORMATION);
   cpnlPrincipal.ActiveCard := CardPesquisa;
   inherited;
 
