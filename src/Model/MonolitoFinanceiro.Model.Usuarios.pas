@@ -19,7 +19,8 @@ uses
   Data.DB,
   FireDAC.Comp.DataSet,
   FireDAC.Comp.Client,
-  MonolitoFinanceiro.Model.Conexao;
+  MonolitoFinanceiro.Model.Conexao,
+  MonolitoFinanceiro.Model.Entidades.Usuarios;
 
 type
   TdmUsuarios = class(TDataModule)
@@ -32,11 +33,17 @@ type
     cdsUsuariosSTATUS: TStringField;
     cdsUsuariosDATA_CADASTRO: TDateField;
     cdsUsuariosID: TStringField;
+    procedure DataModuleCreate(Sender: TObject);
+    procedure DataModuleDestroy(Sender: TObject);
   private
     { Private declarations }
+    FEntidadeUsuario : TModelEntidadeUsuario;
   public
     { Public declarations }
     function TemLoginCadastrado(Login : String; ID : String) : Boolean;
+    function GetUsuarioLogado : TModelEntidadeUsuario;
+    procedure EfetuarLogin(Login : String; Senha : String);
+
   end;
 
 var
@@ -49,6 +56,58 @@ implementation
 {$R *.dfm}
 
 { TdmUsuarios }
+
+procedure TdmUsuarios.DataModuleCreate(Sender: TObject);
+begin
+
+  FEntidadeUsuario := TModelEntidadeUsuario.Create;
+
+end;
+
+procedure TdmUsuarios.DataModuleDestroy(Sender: TObject);
+begin
+  FEntidadeUsuario.Free;
+end;
+
+procedure TdmUsuarios.EfetuarLogin(Login, Senha: String);
+var
+  SQLConsulta : TFDQuery;
+
+begin
+  SQLConsulta := TFDQuery.Create(nil);
+
+  try
+
+    SQLConsulta.Connection := dmConexao.SQLConexao;
+    SQLConsulta.sql.Clear;
+    SQLConsulta.sql.Add('SELECT * FROM USUARIOS WHERE LOGIN = :LOGIN AND SENHA = :SENHA');
+    SQLConsulta.ParamByName('LOGIN').AsString := Login;
+    SQLConsulta.ParamByName('SENHA').AsString := Senha;
+    SQLConsulta.Open;
+
+    if SQLConsulta.IsEmpty then
+      raise Exception.Create('Usuário e/ou Senha inválidos!!');
+
+    if SQLConsulta.FieldByName('STATUS').AsString <> 'A' then
+      raise Exception.Create('Usuário Bloqueado, Favor entrar em contato com o Administrador');
+
+    FEntidadeUsuario.Id    := SQLConsulta.FieldByName('ID').AsString;
+    FEntidadeUsuario.Login := SQLConsulta.FieldByName('LOGIN').AsString;
+    FEntidadeUsuario.Nome  := SQLConsulta.FieldByName('NOME').AsString;
+
+  finally
+
+    SQLConsulta.Close;
+    SQLConsulta.Free;
+
+  end;
+
+end;
+
+function TdmUsuarios.GetUsuarioLogado: TModelEntidadeUsuario;
+begin
+  Result := FEntidadeUsuario;
+end;
 
 function TdmUsuarios.TemLoginCadastrado(Login, ID: String): Boolean;
 var

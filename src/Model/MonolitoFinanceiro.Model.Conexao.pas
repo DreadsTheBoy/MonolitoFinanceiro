@@ -34,9 +34,11 @@ type
 
   private
     { Private declarations }
-    const ArquivoConfiguracao = 'D:\Dev\Project Delphi\MonolitoFinanceiro\db\SistemaFinanceiro.db';
+    const ARQUIVOCONFIGURACAO = 'D:\Dev\Project Delphi\MonolitoFinanceiro\bin\MonolitoFinanceiro.cfg';
+
   public
     { Public declarations }
+
     procedure CarregarConfiguracoes;
     procedure Conectar;
     procedure Desconectar;
@@ -57,15 +59,15 @@ procedure TdmConexao.CarregarConfiguracoes;
 var
   parametroNome     : String;
   parametroValor    : String;
-  Contador  : Integer;
-  ListaParametro  : TStringList;
+  Contador          : Integer;
+  ListaParametro    : TStringList;
 begin
   SQLConexao.Params.Clear;
-  if not FileExists(ArquivoConfiguracao) then
+  if not FileExists(ARQUIVOCONFIGURACAO) then
     raise exception.Create('Arquivo de Configuração não encontrado!!!');
   ListaParametro := TStringList.Create;
   try
-    ListaParametro.LoadFromFile(ArquivoConfiguracao);
+    ListaParametro.LoadFromFile(ARQUIVOCONFIGURACAO);
     for Contador := 0 to Pred(ListaParametro.Count) do
     begin
       if ListaParametro[Contador].IndexOf('=') > 0 then
