@@ -36,6 +36,7 @@ type
     Label3: TLabel;
     edtSenha: TEdit;
     Panel4: TPanel;
+    Panel7: TPanel;
     procedure btnEntrarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private

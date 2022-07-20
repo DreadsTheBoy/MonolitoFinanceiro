@@ -908,6 +908,14 @@ object frmLogin: TfrmLogin
           TabOrder = 0
           OnClick = btnEntrarClick
         end
+        object Panel7: TPanel
+          Left = 288
+          Top = 72
+          Width = 185
+          Height = 41
+          Caption = 'Panel7'
+          TabOrder = 1
+        end
       end
     end
   end

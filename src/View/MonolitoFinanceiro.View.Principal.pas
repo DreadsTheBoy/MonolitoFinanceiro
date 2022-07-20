@@ -18,6 +18,7 @@ uses
   MonolitoFinanceiro.View.Login,
   Vcl.ComCtrls,
   MonolitoFinanceiro.Model.Usuarios,
+  MonolitoFinanceiro.View.RedefinirSenha,
   Vcl.ExtCtrls,
   System.SysUtils;
 
@@ -63,6 +64,19 @@ begin
       Application.Terminate;
   finally
     freeAndNil(frmLogin);
+  end;
+
+  if dmUsuarios.GetUsuarioLogado.SenhaTemporaria then
+  begin
+    frmRedefinirSenha := TfrmRedefinirSenha.Create(nil);
+    try
+      frmRedefinirSenha.Usuario := dmUsuarios.GetUsuarioLogado;
+      frmRedefinirSenha.ShowModal;
+      if frmRedefinirSenha.ModalResult <> mrOk then
+        Application.Terminate;
+    finally
+      FreeAndNil(frmRedefinirSenha);
+    end;
   end;
 
   StatusBar1.Panels.Items[1].Text := 'Usuário: ' + dmUsuarios.GetUsuarioLogado.Nome;

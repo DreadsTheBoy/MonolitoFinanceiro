@@ -19,6 +19,7 @@ uses
   Data.DB,
   FireDAC.Comp.DataSet,
   FireDAC.Comp.Client,
+  BCrypt,
   MonolitoFinanceiro.Model.Conexao,
   MonolitoFinanceiro.Model.Entidades.Usuarios;
 
@@ -33,6 +34,7 @@ type
     cdsUsuariosSTATUS: TStringField;
     cdsUsuariosDATA_CADASTRO: TDateField;
     cdsUsuariosID: TStringField;
+    cdsUsuariosSENHA_TEMPORARIA: TStringField;
     procedure DataModuleCreate(Sender: TObject);
     procedure DataModuleDestroy(Sender: TObject);
   private
@@ -42,7 +44,12 @@ type
     { Public declarations }
     function TemLoginCadastrado(Login : String; ID : String) : Boolean;
     function GetUsuarioLogado : TModelEntidadeUsuario;
+
     procedure EfetuarLogin(Login : String; Senha : String);
+    procedure LimparSenha(IdUsuario : String);
+    procedure RedefinirSenha(Usuario : TModelEntidadeUsuario);
+
+    const TEMP_PASSWORD = '123456';
 
   end;
 
@@ -80,12 +87,17 @@ begin
 
     SQLConsulta.Connection := dmConexao.SQLConexao;
     SQLConsulta.sql.Clear;
-    SQLConsulta.sql.Add('SELECT * FROM USUARIOS WHERE LOGIN = :LOGIN AND SENHA = :SENHA');
+    SQLConsulta.sql.Add('SELECT * FROM USUARIOS WHERE LOGIN = :LOGIN');
     SQLConsulta.ParamByName('LOGIN').AsString := Login;
-    SQLConsulta.ParamByName('SENHA').AsString := Senha;
+    //Desativado para usa nova implementação de senha criptografada
+    //SQLConsulta.ParamByName('SENHA').AsString := Senha;
     SQLConsulta.Open;
 
     if SQLConsulta.IsEmpty then
+      raise Exception.Create('Usuário e/ou Senha inválidos!!');
+
+    //Novo Modelo para comparação da senha criptografada
+    if not TBCrypt.CompareHash(Senha, SQLConsulta.FieldByName('SENHA').AsString) then
       raise Exception.Create('Usuário e/ou Senha inválidos!!');
 
     if SQLConsulta.FieldByName('STATUS').AsString <> 'A' then
@@ -94,6 +106,8 @@ begin
     FEntidadeUsuario.Id    := SQLConsulta.FieldByName('ID').AsString;
     FEntidadeUsuario.Login := SQLConsulta.FieldByName('LOGIN').AsString;
     FEntidadeUsuario.Nome  := SQLConsulta.FieldByName('NOME').AsString;
+    FEntidadeUsuario.Senha := SQLConsulta.FieldByName('SENHA').AsString;
+    FEntidadeUsuario.SenhaTemporaria := SQLConsulta.FieldByName('SENHA_TEMPORARIA').AsString = 'S';
 
   finally
 
@@ -107,6 +121,45 @@ end;
 function TdmUsuarios.GetUsuarioLogado: TModelEntidadeUsuario;
 begin
   Result := FEntidadeUsuario;
+end;
+
+procedure TdmUsuarios.LimparSenha(IdUsuario: String);
+var
+  SQLQuery : TFDQuery;
+begin
+  SQLQuery := TFDQuery.Create(nil);
+  try
+    SQLQuery.Connection := dmConexao.SQLConexao;
+    SQLQuery.sql.Clear;
+    SQLQuery.sql.Add('UPDATE USUARIOS SET SENHA_TEMPORARIA = :SENHA_TEMPORARIA, SENHA = :SENHA WHERE ID = :ID');
+    SQLQuery.ParamByName('SENHA_TEMPORARIA').AsString := 'S';
+    SQLQuery.ParamByName('SENHA').AsString := TBCrypt.GenerateHash(TEMP_PASSWORD);
+    SQLQuery.ParamByName('ID').AsString := IdUsuario;
+    SQLQuery.ExecSQL;
+  finally
+    SQLQuery.Close;
+    SQLQuery.Free;
+  end;
+
+end;
+
+procedure TdmUsuarios.RedefinirSenha(Usuario: TModelEntidadeUsuario);
+var
+  SQLQuery : TFDQuery;
+begin
+  SQLQuery := TFDQuery.Create(nil);
+  try
+    SQLQuery.Connection := dmConexao.SQLConexao;
+    SQLQuery.sql.Clear;
+    SQLQuery.sql.Add('UPDATE USUARIOS SET SENHA_TEMPORARIA = :SENHA_TEMPORARIA, SENHA = :SENHA WHERE ID = :ID');
+    SQLQuery.ParamByName('SENHA_TEMPORARIA').AsString := 'N';
+    SQLQuery.ParamByName('SENHA').AsString := TBCrypt.GenerateHash(Usuario.Senha);
+    SQLQuery.ParamByName('ID').AsString := Usuario.Id;
+    SQLQuery.ExecSQL;
+  finally
+    SQLQuery.Close;
+    SQLQuery.Free;
+  end;
 end;
 
 function TdmUsuarios.TemLoginCadastrado(Login, ID: String): Boolean;
