@@ -1,22 +1,22 @@
 inherited frmUsuarios: TfrmUsuarios
   Caption = 'Cadastro de Usu'#225'rios'
-  ClientHeight = 406
-  ClientWidth = 605
-  ExplicitWidth = 611
-  ExplicitHeight = 435
+  ClientHeight = 482
+  ClientWidth = 610
+  ExplicitWidth = 616
+  ExplicitHeight = 511
   PixelsPerInch = 96
   TextHeight = 13
   inherited cpnlPrincipal: TCardPanel
-    Width = 605
-    Height = 406
-    ExplicitWidth = 605
-    ExplicitHeight = 406
+    Width = 610
+    Height = 482
+    ExplicitWidth = 610
+    ExplicitHeight = 482
     inherited CardCadastro: TCard
-      Width = 603
-      Height = 404
+      Width = 608
+      Height = 480
       Caption = 'S'
-      ExplicitWidth = 603
-      ExplicitHeight = 404
+      ExplicitWidth = 608
+      ExplicitHeight = 480
       object Label2: TLabel [0]
         Left = 32
         Top = 35
@@ -39,17 +39,17 @@ inherited frmUsuarios: TfrmUsuarios
         Caption = 'Status:'
       end
       inherited Panel1: TPanel
-        Top = 339
-        Width = 603
-        ExplicitTop = 339
-        ExplicitWidth = 603
+        Top = 415
+        Width = 608
+        ExplicitTop = 415
+        ExplicitWidth = 608
         inherited btnCancelar: TButton
-          Left = 528
-          ExplicitLeft = 528
+          Left = 533
+          ExplicitLeft = 533
         end
         inherited btnSalvar: TButton
-          Left = 453
-          ExplicitLeft = 453
+          Left = 458
+          ExplicitLeft = 458
         end
       end
       object edtNome: TEdit
@@ -77,25 +77,25 @@ inherited frmUsuarios: TfrmUsuarios
       end
     end
     inherited CardPesquisa: TCard
-      Width = 603
-      Height = 404
+      Width = 608
+      Height = 480
       ExplicitWidth = 603
       ExplicitHeight = 404
       inherited pnlPesquisa: TPanel
-        Width = 603
+        Width = 608
         ExplicitWidth = 603
         inherited btnPesquisar: TButton
-          Left = 528
+          Left = 533
           ExplicitLeft = 528
         end
       end
       inherited PnlPesquisaBotoes: TPanel
-        Top = 339
-        Width = 603
+        Top = 415
+        Width = 608
         ExplicitTop = 339
         ExplicitWidth = 603
         inherited btnFechar: TButton
-          Left = 528
+          Left = 533
           ExplicitLeft = 528
         end
         inherited btnExcluir: TButton
@@ -103,14 +103,13 @@ inherited frmUsuarios: TfrmUsuarios
         end
       end
       inherited pnlPesquisaGrid: TPanel
-        Width = 603
-        Height = 274
+        Width = 608
+        Height = 350
         ExplicitWidth = 603
         ExplicitHeight = 274
         inherited DBGrid1: TDBGrid
-          Width = 601
-          Height = 272
-          DataSource = DataSource1
+          Width = 606
+          Height = 348
           PopupMenu = PopupMenu1
           Columns = <
             item
@@ -138,12 +137,7 @@ inherited frmUsuarios: TfrmUsuarios
       end
     end
   end
-  object DataSource1: TDataSource
-    DataSet = dmUsuarios.cdsUsuarios
-    Left = 761
-    Top = 410
-  end
-  object PopupMenu1: TPopupMenu
+  object PopupMenu1: TPopupMenu [2]
     Left = 505
     Top = 122
     object mnuLimparSenha: TMenuItem

@@ -4,8 +4,8 @@ object frmCadastroPadrao: TfrmCadastroPadrao
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Cadastro Padr'#227'o'
-  ClientHeight = 637
-  ClientWidth = 1076
+  ClientHeight = 596
+  ClientWidth = 782
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,30 +20,30 @@ object frmCadastroPadrao: TfrmCadastroPadrao
   object cpnlPrincipal: TCardPanel
     Left = 0
     Top = 0
-    Width = 1076
-    Height = 637
+    Width = 782
+    Height = 596
     Align = alClient
-    ActiveCard = CardCadastro
+    ActiveCard = CardPesquisa
     Caption = 'cpnlPrincipal'
     TabOrder = 0
     object CardCadastro: TCard
       Left = 1
       Top = 1
-      Width = 1074
-      Height = 635
+      Width = 780
+      Height = 594
       Caption = 'CardCadastro'
       CardIndex = 0
       TabOrder = 0
       object Panel1: TPanel
         Left = 0
-        Top = 570
-        Width = 1074
+        Top = 529
+        Width = 780
         Height = 65
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 0
         object btnCancelar: TButton
-          Left = 999
+          Left = 705
           Top = 0
           Width = 75
           Height = 65
@@ -57,7 +57,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           OnClick = btnCancelarClick
         end
         object btnSalvar: TButton
-          Left = 924
+          Left = 630
           Top = 0
           Width = 75
           Height = 65
@@ -75,15 +75,15 @@ object frmCadastroPadrao: TfrmCadastroPadrao
     object CardPesquisa: TCard
       Left = 1
       Top = 1
-      Width = 1074
-      Height = 635
+      Width = 780
+      Height = 594
       Caption = 'CardPesquisa'
       CardIndex = 1
       TabOrder = 1
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
-        Width = 1074
+        Width = 780
         Height = 65
         Align = alTop
         BevelOuter = bvNone
@@ -103,7 +103,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           TabOrder = 0
         end
         object btnPesquisar: TButton
-          Left = 999
+          Left = 705
           Top = 0
           Width = 75
           Height = 65
@@ -119,14 +119,14 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       end
       object PnlPesquisaBotoes: TPanel
         Left = 0
-        Top = 570
-        Width = 1074
+        Top = 529
+        Width = 780
         Height = 65
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 1
         object btnFechar: TButton
-          Left = 999
+          Left = 705
           Top = 0
           Width = 75
           Height = 65
@@ -192,21 +192,23 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           ImageMargins.Top = 10
           Images = ImageList1
           TabOrder = 4
+          OnClick = btnExcluirClick
         end
       end
       object pnlPesquisaGrid: TPanel
         Left = 0
         Top = 65
-        Width = 1074
-        Height = 505
+        Width = 780
+        Height = 464
         Align = alClient
         TabOrder = 2
         object DBGrid1: TDBGrid
           Left = 1
           Top = 1
-          Width = 1072
-          Height = 503
+          Width = 778
+          Height = 462
           Align = alClient
+          DataSource = DataSource1
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText
@@ -1815,5 +1817,10 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       0000000000000000000000000000000000000000000000000000000000000000
       0000000000000000000000000000000000000000000000000000000000000000
       000000000000}
+  end
+  object DataSource1: TDataSource
+    DataSet = dmUsuarios.cdsUsuarios
+    Left = 761
+    Top = 410
   end
 end

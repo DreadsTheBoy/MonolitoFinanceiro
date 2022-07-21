@@ -40,6 +40,13 @@ object frmPrincipal: TfrmPrincipal
         OnClick = mnuUsuariosClick
       end
     end
+    object mnuFinanceiro: TMenuItem
+      Caption = 'Financeiro'
+      object mnuCaixa: TMenuItem
+        Caption = 'Caixa'
+        OnClick = mnuCaixaClick
+      end
+    end
     object mnuRelatorios: TMenuItem
       Caption = 'Relat'#243'rios'
     end

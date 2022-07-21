@@ -16,6 +16,7 @@ uses
   MonolitoFinanceiro.View.Splash,
   MonolitoFinanceiro.View.Usuarios,
   MonolitoFinanceiro.View.Login,
+  MonolitoFinanceiro.View.Caixa,
   Vcl.ComCtrls,
   MonolitoFinanceiro.Model.Usuarios,
   MonolitoFinanceiro.View.RedefinirSenha,
@@ -31,9 +32,12 @@ type
     mnuUsuarios: TMenuItem;
     StatusBar1: TStatusBar;
     Timer1: TTimer;
+    mnuFinanceiro: TMenuItem;
+    mnuCaixa: TMenuItem;
     procedure mnuUsuariosClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure mnuCaixaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -44,6 +48,8 @@ var
   frmPrincipal: TfrmPrincipal;
 
 implementation
+
+
 
 {$R *.dfm}
 
@@ -78,15 +84,17 @@ begin
       FreeAndNil(frmRedefinirSenha);
     end;
   end;
-
   StatusBar1.Panels.Items[1].Text := 'Usuário: ' + dmUsuarios.GetUsuarioLogado.Nome;
+end;
 
+procedure TfrmPrincipal.mnuCaixaClick(Sender: TObject);
+begin
+  frmCaixa.show;
 end;
 
 procedure TfrmPrincipal.mnuUsuariosClick(Sender: TObject);
 begin
   frmUsuarios.show;
-
 end;
 
 procedure TfrmPrincipal.Timer1Timer(Sender: TObject);
