@@ -155,6 +155,8 @@ begin
         TCustomEdit(Components[Contador]).Clear
       else if Components[Contador] is TToggleSwitch then
         TToggleSwitch(Components[Contador]).State := tssOn
+      else if Components[Contador] is TRadioGroup then
+        TRadioGroup(Components[Contador]).ItemIndex := -1;
     end;
 end;
 

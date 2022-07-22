@@ -9,12 +9,12 @@ inherited frmUsuarios: TfrmUsuarios
   inherited cpnlPrincipal: TCardPanel
     Width = 610
     Height = 482
+    ActiveCard = CardCadastro
     ExplicitWidth = 610
     ExplicitHeight = 482
     inherited CardCadastro: TCard
       Width = 608
       Height = 480
-      Caption = 'S'
       ExplicitWidth = 608
       ExplicitHeight = 480
       object Label2: TLabel [0]
@@ -79,34 +79,31 @@ inherited frmUsuarios: TfrmUsuarios
     inherited CardPesquisa: TCard
       Width = 608
       Height = 480
-      ExplicitWidth = 603
-      ExplicitHeight = 404
+      ExplicitWidth = 608
+      ExplicitHeight = 480
       inherited pnlPesquisa: TPanel
         Width = 608
-        ExplicitWidth = 603
+        ExplicitWidth = 608
         inherited btnPesquisar: TButton
           Left = 533
-          ExplicitLeft = 528
+          ExplicitLeft = 533
         end
       end
       inherited PnlPesquisaBotoes: TPanel
         Top = 415
         Width = 608
-        ExplicitTop = 339
-        ExplicitWidth = 603
+        ExplicitTop = 415
+        ExplicitWidth = 608
         inherited btnFechar: TButton
           Left = 533
-          ExplicitLeft = 528
-        end
-        inherited btnExcluir: TButton
-          OnClick = btnExcluirClick
+          ExplicitLeft = 533
         end
       end
       inherited pnlPesquisaGrid: TPanel
         Width = 608
         Height = 350
-        ExplicitWidth = 603
-        ExplicitHeight = 274
+        ExplicitWidth = 608
+        ExplicitHeight = 350
         inherited DBGrid1: TDBGrid
           Width = 606
           Height = 348
