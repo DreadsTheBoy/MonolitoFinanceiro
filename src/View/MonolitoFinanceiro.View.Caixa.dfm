@@ -9,14 +9,13 @@ inherited frmCaixa: TfrmCaixa
   inherited cpnlPrincipal: TCardPanel
     Width = 560
     Height = 408
-    ExplicitWidth = 553
-    ExplicitHeight = 493
+    ExplicitWidth = 560
+    ExplicitHeight = 408
     inherited CardCadastro: TCard
       Width = 558
       Height = 406
-      ExplicitLeft = 2
-      ExplicitWidth = 550
-      ExplicitHeight = 337
+      ExplicitWidth = 558
+      ExplicitHeight = 406
       object Label2: TLabel [0]
         Left = 8
         Top = 35
@@ -41,15 +40,15 @@ inherited frmCaixa: TfrmCaixa
       inherited Panel1: TPanel
         Top = 341
         Width = 558
-        ExplicitTop = 324
-        ExplicitWidth = 578
+        ExplicitTop = 341
+        ExplicitWidth = 558
         inherited btnCancelar: TButton
           Left = 483
-          ExplicitLeft = 476
+          ExplicitLeft = 483
         end
         inherited btnSalvar: TButton
           Left = 408
-          ExplicitLeft = 401
+          ExplicitLeft = 408
         end
       end
       object edtNumeroDocumento: TEdit
@@ -89,35 +88,54 @@ inherited frmCaixa: TfrmCaixa
     inherited CardPesquisa: TCard
       Width = 558
       Height = 406
-      ExplicitWidth = 551
-      ExplicitHeight = 491
+      ExplicitWidth = 558
+      ExplicitHeight = 406
       inherited pnlPesquisa: TPanel
         Width = 558
-        ExplicitWidth = 551
+        ExplicitLeft = 1
+        ExplicitTop = -5
+        ExplicitWidth = 558
+        object Label5: TLabel [1]
+          Left = 311
+          Top = 12
+          Width = 20
+          Height = 13
+          Caption = 'Tipo'
+        end
         inherited btnPesquisar: TButton
           Left = 483
-          ExplicitLeft = 476
+          ExplicitLeft = 483
+        end
+        object cbTipo: TComboBox
+          Left = 311
+          Top = 31
+          Width = 145
+          Height = 21
+          Style = csDropDownList
+          ItemIndex = 0
+          TabOrder = 2
+          Text = 'TODOS'
+          Items.Strings = (
+            'TODOS'
+            'RECEITA'
+            'DESPESA')
         end
       end
       inherited PnlPesquisaBotoes: TPanel
         Top = 341
         Width = 558
-        ExplicitTop = 426
-        ExplicitWidth = 551
+        ExplicitTop = 341
+        ExplicitWidth = 558
         inherited btnFechar: TButton
           Left = 483
-          ExplicitLeft = 476
-        end
-        inherited btnAlterar: TButton
-          ExplicitLeft = 81
-          ExplicitTop = 5
+          ExplicitLeft = 483
         end
       end
       inherited pnlPesquisaGrid: TPanel
         Width = 558
         Height = 276
-        ExplicitWidth = 551
-        ExplicitHeight = 361
+        ExplicitWidth = 558
+        ExplicitHeight = 276
         inherited DBGrid1: TDBGrid
           Width = 556
           Height = 274

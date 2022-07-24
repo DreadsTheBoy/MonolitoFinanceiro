@@ -1,0 +1,76 @@
+unit MonolitoFinanceiro.View.Caixa.Saldo;
+
+interface
+
+uses
+  Winapi.Windows,
+  Winapi.Messages,
+  System.SysUtils,
+  System.Variants,
+  System.Classes,
+  Vcl.Graphics,
+  Vcl.Controls,
+  Vcl.Forms,
+  Vcl.Dialogs,
+  Vcl.ExtCtrls,
+  Vcl.StdCtrls,
+  System.ImageList,
+  Vcl.ImgList,
+  MonolitoFinanceiro.Model.Entidades.Caixa.Resumo,
+  Vcl.WinXPanels,
+  Vcl.ComCtrls;
+
+type
+  TfrmCaixaSaldo = class(TForm)
+    pnlPrincipal: TPanel;
+    pnlPesquisar: TPanel;
+    pnlContent: TPanel;
+    btnPesquisar: TButton;
+    ImageList1: TImageList;
+    dateInicial: TDateTimePicker;
+    dateFinal: TDateTimePicker;
+    Label1: TLabel;
+    Label2: TLabel;
+    StackPanel1: TStackPanel;
+    Panel1: TPanel;
+    Label3: TLabel;
+    lblSaldoInicial: TLabel;
+    Panel2: TPanel;
+    Label5: TLabel;
+    lblTotalEntradas: TLabel;
+    Panel3: TPanel;
+    Label7: TLabel;
+    lblTotalSaidas: TLabel;
+    Panel4: TPanel;
+    Label9: TLabel;
+    lblSaldoParcial: TLabel;
+    Panel5: TPanel;
+    Label11: TLabel;
+    lblSaldoFinal: TLabel;
+    pnlLineHeader: TPanel;
+    pnlLineRodape: TPanel;
+  private
+    { Private declarations }
+    procedure Pesquisar;
+  public
+    { Public declarations }
+  end;
+
+var
+  frmCaixaSaldo: TfrmCaixaSaldo;
+
+implementation
+
+{$R *.dfm}
+
+{ TfrmCaixaSaldo }
+
+procedure TfrmCaixaSaldo.Pesquisar;
+var
+  ResumoCaixa : TmodelResumoCaixa;
+
+begin
+  //
+end;
+
+end.

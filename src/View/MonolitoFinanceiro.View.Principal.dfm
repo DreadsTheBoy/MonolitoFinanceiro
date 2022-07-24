@@ -49,6 +49,10 @@ object frmPrincipal: TfrmPrincipal
     end
     object mnuRelatorios: TMenuItem
       Caption = 'Relat'#243'rios'
+      object mnuResumoCaixa: TMenuItem
+        Caption = 'Resumo do Caixa'
+        OnClick = mnuResumoCaixaClick
+      end
     end
     object mnuAjuda: TMenuItem
       Caption = 'Ajuda'

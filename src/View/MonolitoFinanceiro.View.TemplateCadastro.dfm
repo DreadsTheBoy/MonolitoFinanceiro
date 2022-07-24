@@ -4,8 +4,8 @@ object frmCadastroPadrao: TfrmCadastroPadrao
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Cadastro Padr'#227'o'
-  ClientHeight = 596
-  ClientWidth = 782
+  ClientHeight = 553
+  ClientWidth = 736
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,30 +20,36 @@ object frmCadastroPadrao: TfrmCadastroPadrao
   object cpnlPrincipal: TCardPanel
     Left = 0
     Top = 0
-    Width = 782
-    Height = 596
+    Width = 736
+    Height = 553
     Align = alClient
     ActiveCard = CardPesquisa
     Caption = 'cpnlPrincipal'
     TabOrder = 0
+    ExplicitWidth = 782
+    ExplicitHeight = 596
     object CardCadastro: TCard
       Left = 1
       Top = 1
-      Width = 780
-      Height = 594
+      Width = 734
+      Height = 551
       Caption = 'CardCadastro'
       CardIndex = 0
       TabOrder = 0
+      ExplicitWidth = 780
+      ExplicitHeight = 594
       object Panel1: TPanel
         Left = 0
-        Top = 529
-        Width = 780
+        Top = 486
+        Width = 734
         Height = 65
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitTop = 529
+        ExplicitWidth = 780
         object btnCancelar: TButton
-          Left = 705
+          Left = 659
           Top = 0
           Width = 75
           Height = 65
@@ -55,9 +61,10 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           Images = ImageList1
           TabOrder = 0
           OnClick = btnCancelarClick
+          ExplicitLeft = 705
         end
         object btnSalvar: TButton
-          Left = 630
+          Left = 584
           Top = 0
           Width = 75
           Height = 65
@@ -69,25 +76,29 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           Images = ImageList1
           TabOrder = 1
           OnClick = btnSalvarClick
+          ExplicitLeft = 630
         end
       end
     end
     object CardPesquisa: TCard
       Left = 1
       Top = 1
-      Width = 780
-      Height = 594
+      Width = 734
+      Height = 551
       Caption = 'CardPesquisa'
       CardIndex = 1
       TabOrder = 1
+      ExplicitWidth = 780
+      ExplicitHeight = 594
       object pnlPesquisa: TPanel
         Left = 0
         Top = 0
-        Width = 780
+        Width = 734
         Height = 65
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitWidth = 780
         object Label1: TLabel
           Left = 8
           Top = 12
@@ -103,7 +114,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           TabOrder = 0
         end
         object btnPesquisar: TButton
-          Left = 705
+          Left = 659
           Top = 0
           Width = 75
           Height = 65
@@ -115,18 +126,21 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           Images = ImageList1
           TabOrder = 1
           OnClick = btnPesquisarClick
+          ExplicitLeft = 705
         end
       end
       object PnlPesquisaBotoes: TPanel
         Left = 0
-        Top = 529
-        Width = 780
+        Top = 486
+        Width = 734
         Height = 65
         Align = alBottom
         BevelOuter = bvNone
         TabOrder = 1
+        ExplicitLeft = 1
+        ExplicitTop = 560
         object btnFechar: TButton
-          Left = 705
+          Left = 659
           Top = 0
           Width = 75
           Height = 65
@@ -138,6 +152,7 @@ object frmCadastroPadrao: TfrmCadastroPadrao
           Images = ImageList1
           TabOrder = 0
           OnClick = btnFecharClick
+          ExplicitLeft = 705
         end
         object btnImprimir: TButton
           Left = 225
@@ -198,17 +213,20 @@ object frmCadastroPadrao: TfrmCadastroPadrao
       object pnlPesquisaGrid: TPanel
         Left = 0
         Top = 65
-        Width = 780
-        Height = 464
+        Width = 734
+        Height = 421
         Align = alClient
         TabOrder = 2
+        ExplicitWidth = 780
+        ExplicitHeight = 464
         object DBGrid1: TDBGrid
           Left = 1
           Top = 1
-          Width = 778
-          Height = 462
+          Width = 732
+          Height = 419
           Align = alClient
           DataSource = DataSource1
+          Options = [dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
           TabOrder = 0
           TitleFont.Charset = DEFAULT_CHARSET
           TitleFont.Color = clWindowText

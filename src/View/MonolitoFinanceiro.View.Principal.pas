@@ -20,6 +20,7 @@ uses
   Vcl.ComCtrls,
   MonolitoFinanceiro.Model.Usuarios,
   MonolitoFinanceiro.View.RedefinirSenha,
+  MonolitoFinanceiro.View.Caixa.Saldo,
   Vcl.ExtCtrls,
   System.SysUtils;
 
@@ -34,10 +35,12 @@ type
     Timer1: TTimer;
     mnuFinanceiro: TMenuItem;
     mnuCaixa: TMenuItem;
+    mnuResumoCaixa: TMenuItem;
     procedure mnuUsuariosClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure mnuCaixaClick(Sender: TObject);
+    procedure mnuResumoCaixaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -48,8 +51,6 @@ var
   frmPrincipal: TfrmPrincipal;
 
 implementation
-
-
 
 {$R *.dfm}
 
@@ -90,6 +91,11 @@ end;
 procedure TfrmPrincipal.mnuCaixaClick(Sender: TObject);
 begin
   frmCaixa.show;
+end;
+
+procedure TfrmPrincipal.mnuResumoCaixaClick(Sender: TObject);
+begin
+  frmCaixaSaldo.Show;
 end;
 
 procedure TfrmPrincipal.mnuUsuariosClick(Sender: TObject);

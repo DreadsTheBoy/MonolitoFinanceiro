@@ -142,7 +142,7 @@ var
 begin
   FiltroPesquisa := TUtilitarios.LikeFind(edtPesquisa.Text, DBGrid1);
   dmUsuarios.cdsUsuarios.close;
-  dmUsuarios.cdsUsuarios.CommandText := 'SELECT * FROM USUARIOS' + FiltroPesquisa;
+  dmUsuarios.cdsUsuarios.CommandText := 'SELECT * FROM USUARIOS WHERE 1 = 1' + FiltroPesquisa;
   dmUsuarios.cdsUsuarios.open;
   inherited;
 end;

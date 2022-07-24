@@ -33,6 +33,8 @@ type
     rgpTipo: TRadioGroup;
     PopupMenu1: TPopupMenu;
     edtValor: TEdit;
+    cbTipo: TComboBox;
+    Label5: TLabel;
     procedure btnSalvarClick(Sender: TObject);
     procedure btnAlterarClick(Sender: TObject);
   private
@@ -120,14 +122,17 @@ end;
 procedure TfrmCaixa.Pesquisar;
 var
   FiltroPesquisa : String;
+  FiltroTipo     : String;
 begin
+  case cbTipo.ItemIndex of
+    1: FiltroTipo := ' AND TIPO = ''R''';
+    2: FiltroTipo := ' AND TIPO = ''D''';
+  end;
+  FiltroPesquisa := TUtilitarios.LikeFind(edtPesquisa.Text, DBGrid1);
   dmCaixa.cdsCaixa.close;
-  dmCaixa.cdsCaixa.CommandText := 'SELECT * FROM CAIXA' + FiltroPesquisa;
+  dmCaixa.cdsCaixa.CommandText := 'SELECT * FROM CAIXA WHERE 1 = 1' + FiltroPesquisa + FiltroTipo;
   dmCaixa.cdsCaixa.open;
   inherited;
 end;
-
-//Parei na Aula#09 - Minuto 1:24:03
-
 
 end.
