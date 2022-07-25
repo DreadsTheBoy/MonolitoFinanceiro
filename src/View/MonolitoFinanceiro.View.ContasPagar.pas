@@ -91,6 +91,28 @@ begin
     Abort;
   end;
 
+  if dateVencimento.date < dateCompra.Date then
+  begin
+    dateVencimento.SetFocus;
+    Application.MessageBox('A data de Vencimento não pode ser inferior a data da Compra!!!', 'Atenção', MB_OK + MB_ICONINFORMATION);
+    Abort;
+  end;
+
+  if DataSource1.State in [dsInsert] then
+  begin
+    dmContasPagar.cdsContasPagarid.AsString              := TUtilitarios.GetID;
+    dmContasPagar.cdsContasPagarDATA_CADASTRO.AsDateTime := Now;
+    dmContasPagar.cdsContasPagarSTATUS.AsString          := 'A';
+    dmContasPagar.cdsContasPagarVALOR_ABATIDO.AsCurrency := 0;
+  end;
+
+  dmContasPagar.cdsContasPagarNUMERO_DOC.AsString        := edtDocumento.Text;
+  dmContasPagar.cdsContasPagarDESCRICAO.AsString         := edtDescricao.Text;
+  dmContasPagar.cdsContasPagarVALOR_COMPRA.AsCurrency    := ValorCompra;
+  dmContasPagar.cdsContasPagarPARCELA.AsInteger          := Parcela;
+  dmContasPagar.cdsContasPagarVALOR_PARCELA.AsCurrency   := ValorParcela;
+  dmContasPagar.cdsContasPagarDATA_VENCIMENTO.AsDateTime := dateVencimento.Date;
+
   inherited;
 
 end;

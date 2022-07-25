@@ -66,55 +66,30 @@ begin
   if edtDocumento.Text = '' then
   begin
     edtDocumento.SetFocus;
-    Application.MessageBox('O Campo Documento n√£o pode estar vazio!!!', 'Aten√ß√£o', MB_OK + MB_ICONINFORMATION);
+    Application.MessageBox('O Campo Documento n„o pode estar vazio!!!', 'AtenÁ„o', MB_OK + MB_ICONINFORMATION);
     Abort;
   end;
 
   if not tryStrToCurr(edtValorCompra.Text, ValorCompra) then
   begin
     edtValorCompra.SetFocus;
-    Application.MessageBox('Valor da Compra inv√°lido!!!', 'Aten√ß√£o', MB_OK + MB_ICONINFORMATION);
+    Application.MessageBox('Valor da Compra inv·lido!!!', 'AtenÁ„o', MB_OK + MB_ICONINFORMATION);
     Abort;
   end;
 
   if not tryStrToInt(edtParcela.Text, Parcela) then
   begin
     edtParcela.SetFocus;
-    Application.MessageBox('N√∫mero de Parcelas inv√°lido!!!', 'Aten√ß√£o', MB_OK + MB_ICONINFORMATION);
+    Application.MessageBox('N˙mero de Parcelas inv·lido!!!', 'AtenÁ„o', MB_OK + MB_ICONINFORMATION);
     Abort;
   end;
 
   if not tryStrToCurr(edtValorParcela.Text, ValorParcela) then
   begin
     edtValorCompra.SetFocus;
-    Application.MessageBox('Valor da Parcela inv√°lido!!!', 'Aten√ß√£o', MB_OK + MB_ICONINFORMATION);
+    Application.MessageBox('Valor da Parcela inv·lido!!!', 'AtenÁ„o', MB_OK + MB_ICONINFORMATION);
     Abort;
   end;
-
-  if dateVencimento.date < dateCompra.Date then
-  begin
-    dateVencimento.SetFocus;
-    Application.MessageBox('A data de Vencimento n√£o pode ser inferior a data da Compra!!!', 'Aten√ß√£o', MB_OK + MB_ICONINFORMATION);
-    Abort;
-  end;
-
-  if DataSource1.State in [dsInsert] then
-  begin
-    dmContasPagar.cdsContasPagarid.AsString              := TUtilitarios.GetID;
-    dmContasPagar.cdsContasPagarDATA_CADASTRO.AsDateTime := Now;
-    dmContasPagar.cdsContasPagarSTATUS.AsString          := 'A';
-    dmContasPagar.cdsContasPagarVALOR_ABATIDO.AsCurrency := 0;
-  end;
-
-  dmContasPagar.cdsContasPagarNUMERO_DOC.AsString        := edtDocumento.Text;
-  dmContasPagar.cdsContasPagarDESCRICAO.AsString         := edtDescricao.Text;
-  dmContasPagar.cdsContasPagarVALOR_COMPRA.AsCurrency    := ValorCompra;
-  dmContasPagar.cdsContasPagarPARCELA.AsInteger          := Parcela;
-  dmContasPagar.cdsContasPagarVALOR_PARCELA.AsCurrency   := ValorParcela;
-  dmContasPagar.cdsContasPagarDATA_VENCIMENTO.AsDateTime := dateVencimento.Date;
-
-
-
 
   inherited;
 
