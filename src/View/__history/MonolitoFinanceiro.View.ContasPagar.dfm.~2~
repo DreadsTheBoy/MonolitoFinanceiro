@@ -1,0 +1,21 @@
+inherited frmContasPagar: TfrmContasPagar
+  Caption = 'Cadastro de Contas a Pagar'
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited cpnlPrincipal: TCardPanel
+    inherited CardCadastro: TCard
+      ExplicitWidth = 734
+      ExplicitHeight = 551
+      inherited Panel1: TPanel
+        ExplicitTop = 486
+        ExplicitWidth = 734
+        inherited btnCancelar: TButton
+          ExplicitLeft = 659
+        end
+        inherited btnSalvar: TButton
+          ExplicitLeft = 584
+        end
+      end
+    end
+  end
+end

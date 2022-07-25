@@ -36,11 +36,13 @@ type
     mnuFinanceiro: TMenuItem;
     mnuCaixa: TMenuItem;
     mnuResumoCaixa: TMenuItem;
+    ContasaPagar1: TMenuItem;
     procedure mnuUsuariosClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
     procedure mnuCaixaClick(Sender: TObject);
     procedure mnuResumoCaixaClick(Sender: TObject);
+    procedure ContasaPagar1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,7 +54,15 @@ var
 
 implementation
 
+uses
+  MonolitoFinanceiro.View.ContasPagar;
+
 {$R *.dfm}
+
+procedure TfrmPrincipal.ContasaPagar1Click(Sender: TObject);
+begin
+  frmContasPagar.Show;
+end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin

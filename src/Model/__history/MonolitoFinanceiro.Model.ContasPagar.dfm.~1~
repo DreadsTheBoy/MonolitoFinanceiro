@@ -1,0 +1,19 @@
+object DataModule1: TDataModule1
+  OldCreateOrder = False
+  Height = 163
+  Width = 276
+  object dsContasPagar: TDataSetProvider
+    Left = 120
+    Top = 16
+  end
+  object cdsContasPagar: TClientDataSet
+    Aggregates = <>
+    Params = <>
+    Left = 208
+    Top = 16
+  end
+  object sqlContasPagar: TFDConnection
+    Left = 32
+    Top = 16
+  end
+end

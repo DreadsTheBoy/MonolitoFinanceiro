@@ -46,6 +46,10 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'Caixa'
         OnClick = mnuCaixaClick
       end
+      object ContasaPagar1: TMenuItem
+        Caption = 'Contas a Pagar'
+        OnClick = ContasaPagar1Click
+      end
     end
     object mnuRelatorios: TMenuItem
       Caption = 'Relat'#243'rios'
